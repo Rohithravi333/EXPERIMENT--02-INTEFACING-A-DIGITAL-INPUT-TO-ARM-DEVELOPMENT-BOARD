@@ -51,11 +51,48 @@ The full form of an ARM is an advanced reduced instruction set computer (RISC) m
 
 
 ## STM 32 CUBE PROGRAM :
+```
+DEVELOPED BY ROHITH R
+REG.NO: 212222230121
 
+#include "main.h"
+#include "stdbool.h"
+bool button_status;
+void push_button();
+
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+
+int main(void)
+{
+  while (1)
+  {
+	  push_button();
+  }
+}
+
+void push_button()
+{
+	button_status =HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
+	if(button_status == 0)
+	{
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+		HAL_Delay(1000);
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+		HAL_Delay(1000);
+	}
+	else
+	{
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+	}
+}
+```
 
 
 ## Output  :
- 
+ ![261587092-6380fd66-32d9-4a87-adc5-a12fc3738ba5](https://github.com/Rohithravi333/EXPERIMENT--02-INTEFACING-A-DIGITAL-INPUT-TO-ARM-DEVELOPMENT-BOARD/assets/119394126/b8cf9ee9-0173-4592-a47b-e71f1b1cd06a)
+![261587070-bef1d8f6-a5d0-4b38-9dd6-40be451c991e](https://github.com/Rohithravi333/EXPERIMENT--02-INTEFACING-A-DIGITAL-INPUT-TO-ARM-DEVELOPMENT-BOARD/assets/119394126/3596cbc4-6e16-4ef9-a818-4e8b7a31289b)
+
  
  
  
